@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日次マーケットサマリー</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; font-size: 15px; line-height: 1.7; }
+        .container { max-width: 1000px; margin: 25px auto; padding: 30px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; font-size: 2em; font-weight: 600; border-bottom: 3px solid #3498db; padding-bottom: 15px; }
+        h2 { color: #34495e; margin-top: 30px; margin-bottom: 12px; font-size: 1.5em; font-weight: 600; border-bottom: 1px solid #bdc3c7; padding-bottom: 10px; }
+        h3 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.25em; font-weight: 600; }
+        h4 { color: #7f8c8d; margin-top: 30px; margin-bottom: 12px; font-size: 1.05em; font-weight: bold; }
+        p { margin-bottom: 1.2em; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin-top: 18px; margin-bottom: 30px; font-size: 0.85em; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        th, td { border: 1px solid #d2d7dc; padding: 10px 14px; text-align: left; vertical-align: top; }
+        th { background-color: #f2f3f7; color: #34495e; font-weight: bold; }
+        tbody tr:nth-child(even) { background-color: #f9fafb; }
+        tbody tr:hover { background-color: #e9edf0; }
+        ul { padding-left: 25px; margin-bottom: 1.2em; list-style-type: square; }
+        li.news-item { margin-bottom: 15px; padding: 10px; border-left: 4px solid #3498db; background-color: #fdfdfe; }
+        .news-title a { text-decoration: none; color: #2980b9; font-weight: bold; font-size: 1.05em;}
+        .news-title a:hover { text-decoration: underline; color: #1abc9c; }
+        .news-meta { font-size: 0.8em; color: #95a5a6; margin-top: 4px; display: block; }
+        .news-summary { font-size: 0.9em; margin-top: 6px; color: #555; }
+        .chart-iframe-container { 
+            width: 100%; 
+            margin-top: 10px;
+            margin-bottom: 25px; 
+            border: 1px solid #d2d7dc; 
+            border-radius: 5px; 
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .chart-iframe-container iframe {
+            width: 100%;
+            height: 480px; /* 少し高さを調整 */
+            border: none; 
+        }
+        .chart-caption { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: -15px; margin-bottom: 25px; } /* キャプションの位置調整 */
+        .disclaimer { font-size: 0.75em; color: #95a5a6; text-align: center; margin-top: 60px; border-top: 1px solid #d2d7dc; padding-top: 25px;}
+        hr.section-divider { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)); margin: 50px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>日次マーケットサマリー</h1>
+        <h2>2025年05月31日</h2>
+
+        <section id="market-overview">
+            <h3>マーケット概況</h3>
+            <p>昨日の金融市場は、米中貿易摩擦再燃への警戒感と、強弱混在の経済指標を受けて、全体的に神経質な展開となりました。トランプ米大統領による中国への関税合意違反の非難や、鉄鋼・アルミニウムへの追加関税引き上げ表明がリスクオフムードを強めましたが、一方で米国のインフレ指標であるPCE価格指数が伸びの鈍化を示したことは、一定の安心材料となりました。</p>
+            <p>株式市場では、主要指数はまちまちな動きを見せました。日経平均株価は前日比467.88円安（-1.22%）の37,965.1円と大幅に反落しました。米国の対中関税強化への懸念が重しとなったほか、国内の鉱工業生産（4月、前月比-0.9%）が市場予想（-1.4%）を上回ったもののマイナス成長だったことも影響した可能性があります。</p>
+            <p>米国市場では、ダウ平均株価が54.34ドル高（+0.13%）の42,270.07ドルと小幅に上昇した一方、S&P 500種指数は0.48ポイント安（-0.01%）の5,911.69ポイントとほぼ横ばい、NASDAQ総合指数は62.1ポイント安（-0.32%）の19,113.77ポイントと下落しました。トランプ大統領の関税関連発言が市場の重石となったものの、4月の米個人消費支出（PCE）コア価格指数が前年同月比で2.5%上昇と、前月（2.7%上昇）から伸びが鈍化し市場予想と一致したことは、インフレ懸念を和らげ相場を下支えしました。しかし、5月の米シカゴ購買部協会景気指数（PMI）が40.5と市場予想（45.1）を大幅に下回ったことは景気減速懸念を強め、株価の上値を抑えました。</p>
+            <p>為替市場では、リスク回避の動きから円が買われる展開となりました。米ドル/円は前日比1.68円の円高ドル安となる144.02円で取引を終えました。米長期金利の低下や貿易摩擦懸念が背景にあると考えられます。ユーロ/米ドルは、DailySummaryベースでは1ユーロ＝1.14米ドルと、前日比0.01米ドルのユーロ高米ドル安となりました。ドイツの5月消費者物価指数（CPI）が前年同月比で市場予想を若干上回ったことや、米PCE価格指数を受けたドル売りがユーロを支えた可能性があります。一方、ポンド/円は1.85円のポンド安円高となる193.83円と、リスクオフムードの中でポンドが売られました。</p>
+            <p>債券市場では、米国の長期金利が低下しました。米10年債利回りはDailySummaryベースで前日比0.01ポイント低下の4.42% (YieldCurves_Combinedベースでは前日比4.6bp低下の4.418%)となりました。PCE価格指数の落ち着きやシカゴPMIの悪化、貿易摩擦への懸念から安全資産とされる米国債が買われた模様です。イールドカーブを見ると、米国では1ヶ月物が3.2bp、2年物が1.6bp、10年物が4.6bp、30年物が4.4bpそれぞれ低下するなど、全体的に金利が低下し、特に短期と長期の金利低下が目立ちました（ブルフラットニング）。日本の10年債利回りも3.2bp低下の1.500%となるなど、主要国で金利低下の動きが見られました。</p>
+            <p>コモディティ市場では、WTI原油先物価格が前日比0.15ドル安（-0.25%）の1バレル＝60.79ドルと小幅に続落しました。石油輸出国機構（OPEC）プラスの増産観測が引き続き上値を抑えました。一方、金価格は前日比28.2ドル安（-0.85%）の1オンス＝3288.9ドルと反落しました。ドル相場が対円で下落したものの、対ユーロでは底堅さを見せるなどまちまちだったことや、前日までの上昇を受けた利益確定の売りが出た可能性があります。</p>
+            <p>総括と今後の注目点。前日は、トランプ大統領の関税関連発言が市場の最大のリスク要因となり、株価の上値を抑え、安全資産への資金シフトを促しました。米PCE価格指数はインフレ鎮静化を示唆し一定の安心感を与えましたが、シカゴPMIの悪化は景気の先行き不透明感を強めました。今後は、引き続き米中貿易摩擦の動向や、各国金融政策担当者の発言が注目されます。また、来週以降に発表される米国の雇用統計などの主要経済指標が、市場の景況感や金融政策の方向性を占う上で重要な手がかりとなるでしょう。</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="intraday-charts">
+            <h3>主要指標イントラデイチャート</h3>
+            <h4>日経225</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/intraday_chart_日経225.html"></iframe>
+            </div>
+            <h4>S&P 500</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/intraday_chart_S&P_500.html"></iframe>
+            </div>
+            <h4>USD/JPY</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/intraday_chart_USD_JPY.html"></iframe>
+            </div>
+            <h4>WTI原油</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/intraday_chart_WTI原油.html"></iframe>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="longterm-charts">
+            <h3>主要指標長期チャート</h3>
+            <h4>日経225</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_日経225.html"></iframe>
+            </div>
+            <h4>S&P 500</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_S&P_500.html"></iframe>
+            </div>
+            <h4>ダウ平均</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_ダウ平均.html"></iframe>
+            </div>
+            <h4>NASDAQ総合</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_NASDAQ総合.html"></iframe>
+            </div>
+            <h4>USD/JPY</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_USD_JPY.html"></iframe>
+            </div>
+            <h4>EUR/USD</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_EUR_USD.html"></iframe>
+            </div>
+            <h4>WTI原油</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_WTI原油.html"></iframe>
+            </div>
+            <h4>金</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/longterm_chart_金.html"></iframe>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="yield-curves">
+            <h3>主要国のイールドカーブ</h3>
+            <h4>米国</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/yield_curve_united_states.html"></iframe>
+            </div>
+            <p class="chart-caption">米国のイールドカーブは全体的に低下（ブルフラットニングの様相）し、特に短期（1ヶ月債で-3.2bp）および長期（10年債で-4.6bp、30年債で-4.4bp）の利回り低下が顕著でした。一方で20年債はわずかに上昇(+0.7bp)しました。</p>
+            <h4>日本</h4>
+            <div class="chart-iframe-container">
+                <iframe src="./charts/yield_curve_japan.html"></iframe>
+            </div>
+            <p class="chart-caption">日本のイールドカーブは、1ヶ月物(+0.7bp)と30年物(+0.2bp)がわずかに上昇したものの、その他は全般的に低下しました。特に2年債（-3.2bp）、7年債（-3.1bp）、10年債（-3.2bp）で低下幅が目立ちました。</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="economic-calendar">
+            <h3>経済指標カレンダー</h3>
+            <h4>前日発表 (2025年05月30日)</h4>
+            <table>
+                <thead><tr><th>時間</th><th>国</th><th>イベント</th><th>重要度</th><th>発表値</th><th>予想値</th><th>前回値</th></tr></thead>
+                <tbody>
+                    <tr><td>0:30</td><td>japan</td><td>CPI Tokyo Ex Food & Energy (YoY) (May)</td><td>low</td><td>2.10%</td><td></td><td>2.00%</td></tr>
+                    <tr><td>0:30</td><td>japan</td><td>Jobs/applications ratio (Apr)</td><td>low</td><td>1.26</td><td>1.26</td><td>1.26</td></tr>
+                    <tr><td>0:30</td><td>japan</td><td>Tokyo Core CPI (YoY) (May)</td><td>medium</td><td>3.60%</td><td>3.50%</td><td>3.40%</td></tr>
+                    <tr><td>0:30</td><td>japan</td><td>Tokyo CPI (YoY) (May)</td><td>low</td><td>3.40%</td><td></td><td>3.40%</td></tr>
+                    <tr><td>0:30</td><td>japan</td><td>CPI Tokyo Ex Food and Energy (MoM) (May)</td><td>low</td><td>0.10%</td><td></td><td>0.70%</td></tr>
+                    <tr><td>0:30</td><td>japan</td><td>Unemployment Rate (Apr)</td><td>low</td><td>2.50%</td><td>2.50%</td><td>2.50%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Industrial Production (MoM) (Apr)</td><td>medium</td><td>-0.90%</td><td>-1.40%</td><td>0.20%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Industrial Production forecast 1m ahead (MoM) (May)</td><td>low</td><td>9.00%</td><td></td><td>1.30%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Industrial Production forecast 2m ahead (MoM) (Jun)</td><td>low</td><td>-3.40%</td><td></td><td>3.90%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Large Retailers' Sales (MoM)</td><td>low</td><td>0.50%</td><td></td><td>-1.20%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Large Scale Retail Sales YoY (YoY) (Apr)</td><td>low</td><td>3.00%</td><td></td><td>3.00%</td></tr>
+                    <tr><td>0:50</td><td>japan</td><td>Retail Sales (YoY) (Apr)</td><td>low</td><td>3.30%</td><td>2.90%</td><td>3.10%</td></tr>
+                    <tr><td>1:25</td><td>united states</td><td>Fed Logan Speaks</td><td>low</td><td></td><td></td><td></td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Building Approvals (YoY) (Apr)</td><td>low</td><td>5.10%</td><td></td><td>11.10%</td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Building Approvals (MoM) (Apr)</td><td>medium</td><td>-5.70%</td><td>3.10%</td><td>-7.10%</td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Housing Credit (Apr)</td><td>low</td><td>0.50%</td><td></td><td>0.40%</td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Private House Approvals (Apr)</td><td>low</td><td>3.10%</td><td></td><td>-1.90%</td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Private Sector Credit (MoM) (Apr)</td><td>low</td><td>0.70%</td><td>0.50%</td><td>0.50%</td></tr>
+                    <tr><td>2:30</td><td>australia</td><td>Retail Sales (MoM) (Apr)</td><td>medium</td><td>-0.10%</td><td>0.30%</td><td>0.30%</td></tr>
+                    <tr><td>4:35</td><td>japan</td><td>2-Year JGB Auction</td><td>low</td><td>0.75%</td><td></td><td>0.69%</td></tr>
+                    <tr><td>6:00</td><td>japan</td><td>Construction Orders (YoY) (Apr)</td><td>low</td><td>52.70%</td><td></td><td>3.50%</td></tr>
+                    <tr><td>6:00</td><td>japan</td><td>Housing Starts (YoY) (Apr)</td><td>low</td><td>-26.60%</td><td>-18.20%</td><td>39.10%</td></tr>
+                    <tr><td>7:00</td><td>germany</td><td>German Retail Sales (MoM) (Apr)</td><td>medium</td><td>-1.10%</td><td>0.20%</td><td>0.90%</td></tr>
+                    <tr><td>7:00</td><td>germany</td><td>German Retail Sales (YoY) (Apr)</td><td>low</td><td>2.30%</td><td>1.80%</td><td>1.30%</td></tr>
+                    <tr><td>8:00</td><td>spain</td><td>Core CPI (YoY) (May)</td><td>low</td><td>2.10%</td><td></td><td>2.40%</td></tr>
+                    <tr><td>8:00</td><td>spain</td><td>Spanish CPI (MoM) (May)</td><td>low</td><td>0.00%</td><td>0.10%</td><td>0.60%</td></tr>
+                    <tr><td>8:00</td><td>spain</td><td>Spanish CPI (YoY) (May)</td><td>medium</td><td>1.90%</td><td>2.10%</td><td>2.20%</td></tr>
+                    <tr><td>8:00</td><td>spain</td><td>Spanish HICP (YoY) (May)</td><td>medium</td><td>1.90%</td><td>2.00%</td><td>2.20%</td></tr>
+                    <tr><td>8:00</td><td>spain</td><td>Spanish HICP (MoM) (May)</td><td>low</td><td>-0.10%</td><td>0.00%</td><td>0.60%</td></tr>
+                    <tr><td>9:00</td><td>italy</td><td>Italian GDP (QoQ) (Q1)</td><td>low</td><td>0.30%</td><td>0.30%</td><td>0.20%</td></tr>
+                    <tr><td>9:00</td><td>italy</td><td>Italian GDP (YoY) (Q1)</td><td>low</td><td>0.70%</td><td>0.60%</td><td>0.50%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Baden Wuerttemberg CPI (YoY) (May)</td><td>low</td><td>2.20%</td><td></td><td>2.40%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Baden Wuerttemberg CPI (MoM) (May)</td><td>low</td><td>-0.10%</td><td></td><td>0.50%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Bavaria CPI (MoM) (May)</td><td>low</td><td>0.10%</td><td></td><td>0.40%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Bavaria CPI (YoY) (May)</td><td>low</td><td>2.10%</td><td></td><td>2.10%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Brandenburg CPI (MoM) (May)</td><td>low</td><td>0.00%</td><td></td><td>0.40%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Brandenburg CPI (YoY) (May)</td><td>low</td><td>2.20%</td><td></td><td>2.20%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Hesse CPI (YoY) (May)</td><td>low</td><td>2.30%</td><td></td><td>2.30%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Hesse CPI (MoM) (May)</td><td>low</td><td>0.00%</td><td></td><td>0.50%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>North Rhine Westphalia CPI (YoY) (May)</td><td>low</td><td>2.00%</td><td></td><td>1.80%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>North Rhine Westphalia CPI (MoM) (May)</td><td>low</td><td>0.20%</td><td></td><td>0.40%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Saxony CPI (YoY) (May)</td><td>low</td><td>2.30%</td><td></td><td>2.40%</td></tr>
+                    <tr><td>9:00</td><td>germany</td><td>Saxony CPI (MoM) (May)</td><td>low</td><td>0.00%</td><td></td><td>0.50%</td></tr>
+                    <tr><td>9:00</td><td>spain</td><td>Spanish Current account (Mar)</td><td>low</td><td>1.42B</td><td></td><td>2.31B</td></tr>
+                    <tr><td>9:00</td><td>euro zone</td><td>M3 Money Supply (YoY) (Apr)</td><td>low</td><td>3.90%</td><td>3.70%</td><td>3.60%</td></tr>
+                    <tr><td>9:00</td><td>euro zone</td><td>Loans to Non Financial Corporations (Apr)</td><td>low</td><td>2.60%</td><td></td><td>2.40%</td></tr>
+                    <tr><td>9:00</td><td>euro zone</td><td>Private Sector Loans (YoY) (Apr)</td><td>low</td><td>1.90%</td><td>1.80%</td><td>1.70%</td></tr>
+                    <tr><td>10:00</td><td>italy</td><td>Italian CPI (MoM) (May)</td><td>low</td><td>0.00%</td><td>0.10%</td><td>0.10%</td></tr>
+                    <tr><td>10:00</td><td>italy</td><td>Italian CPI (YoY) (May)</td><td>low</td><td>1.70%</td><td>1.70%</td><td>1.90%</td></tr>
+                    <tr><td>10:00</td><td>italy</td><td>Italian HICP (MoM) (May)</td><td>low</td><td>0.10%</td><td>0.00%</td><td>0.40%</td></tr>
+                    <tr><td>10:00</td><td>italy</td><td>Italian HICP (YoY) (May)</td><td>low</td><td>1.90%</td><td>1.90%</td><td>2.00%</td></tr>
+                    <tr><td>11:00</td><td>italy</td><td>Italian PPI (MoM) (Apr)</td><td>low</td><td>-2.20%</td><td></td><td>-2.40%</td></tr>
+                    <tr><td>11:00</td><td>italy</td><td>Italian PPI (YoY) (Apr)</td><td>low</td><td>2.60%</td><td></td><td>3.90%</td></tr>
+                    <tr><td>13:00</td><td>germany</td><td>German CPI (MoM) (May)</td><td>high</td><td>0.10%</td><td>0.10%</td><td>0.40%</td></tr>
+                    <tr><td>13:00</td><td>germany</td><td>German CPI (YoY) (May)</td><td>medium</td><td>2.10%</td><td>2.00%</td><td>2.10%</td></tr>
+                    <tr><td>13:00</td><td>germany</td><td>German HICP (MoM) (May)</td><td>low</td><td>0.20%</td><td>0.10%</td><td>0.50%</td></tr>
+                    <tr><td>13:00</td><td>germany</td><td>German HICP (YoY) (May)</td><td>low</td><td>2.10%</td><td>2.00%</td><td>2.20%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Core PCE Price Index (MoM) (Apr)</td><td>high</td><td>0.10%</td><td>0.10%</td><td>0.10%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Core PCE Price Index (YoY) (Apr)</td><td>high</td><td>2.50%</td><td>2.50%</td><td>2.70%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Goods Trade Balance (Apr)</td><td>medium</td><td>-87.62B</td><td>-142.80B</td><td>-162.25B</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>PCE Price index (YoY) (Apr)</td><td>medium</td><td>2.10%</td><td>2.20%</td><td>2.30%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>PCE price index (MoM) (Apr)</td><td>medium</td><td>0.10%</td><td>0.10%</td><td>0.00%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Personal Income (MoM) (Apr)</td><td>low</td><td>0.80%</td><td>0.30%</td><td>0.70%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Personal Spending (MoM) (Apr)</td><td>medium</td><td>0.20%</td><td>0.20%</td><td>0.70%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Real Personal Consumption (MoM) (Apr)</td><td>low</td><td>0.10%</td><td></td><td>0.70%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Retail Inventories Ex Auto (Apr)</td><td>medium</td><td>0.30%</td><td></td><td>0.30%</td></tr>
+                    <tr><td>13:30</td><td>united states</td><td>Wholesale Inventories (MoM) (Apr)</td><td>low</td><td>0.00%</td><td>0.40%</td><td>0.40%</td></tr>
+                    <tr><td>13:30</td><td>canada</td><td>GDP (MoM) (Mar)</td><td>medium</td><td>0.10%</td><td>0.10%</td><td>-0.20%</td></tr>
+                    <tr><td>13:30</td><td>canada</td><td>GDP Annualized (QoQ) (Q1)</td><td>medium</td><td>2.20%</td><td>1.70%</td><td>2.10%</td></tr>
+                    <tr><td>13:31</td><td>canada</td><td>GDP (MoM) (Apr)</td><td>medium</td><td>0.10%</td><td></td><td>0.10%</td></tr>
+                    <tr><td>14:45</td><td>united states</td><td>Chicago PMI (May)</td><td>high</td><td>40.5</td><td>45.1</td><td>44.6</td></tr>
+                    <tr><td>15:00</td><td>united states</td><td>Michigan 1-Year Inflation Expectations (May)</td><td>medium</td><td>6.60%</td><td>7.30%</td><td>6.50%</td></tr>
+                    <tr><td>15:00</td><td>united states</td><td>Michigan 5-Year Inflation Expectations (May)</td><td>medium</td><td>4.20%</td><td>4.60%</td><td>4.40%</td></tr>
+                    <tr><td>15:00</td><td>united states</td><td>Michigan Consumer Expectations (May)</td><td>medium</td><td>47.9</td><td>46.5</td><td>47.3</td></tr>
+                    <tr><td>15:00</td><td>united states</td><td>Michigan Consumer Sentiment (May)</td><td>medium</td><td>52.2</td><td>50.8</td><td>52.2</td></tr>
+                    <tr><td>15:00</td><td>united states</td><td>Michigan Current Conditions (May)</td><td>low</td><td>58.9</td><td>57.6</td><td>59.8</td></tr>
+                    <tr><td>16:00</td><td>united states</td><td>Atlanta Fed GDPNow (Q2)</td><td>medium</td><td>3.80%</td><td>2.20%</td><td>2.20%</td></tr>
+                    <tr><td>16:00</td><td>canada</td><td>Budget Balance (Mar)</td><td>low</td><td>-23.88B</td><td></td><td>7.57B</td></tr>
+                    <tr><td>17:20</td><td>united states</td><td>FOMC Member Bostic Speaks</td><td>medium</td><td></td><td></td><td></td></tr>
+                    <tr><td>18:00</td><td>united states</td><td>U.S. Baker Hughes Oil Rig Count</td><td>medium</td><td>461</td><td></td><td>465</td></tr>
+                    <tr><td>18:00</td><td>united states</td><td>U.S. Baker Hughes Total Rig Count</td><td>medium</td><td>563</td><td></td><td>566</td></tr>
+                </tbody>
+            </table>
+            <h4>本日予定 (2025年05月31日)</h4>
+            <table>
+                <thead><tr><th>時間</th><th>国</th><th>イベント</th><th>重要度</th><th>予想値</th><th>前回値</th></tr></thead>
+                <tbody>
+                    <tr><td>0:30</td><td>united states</td><td>Fed Goolsbee Speaks</td><td>low</td><td></td><td></td></tr>
+                    <tr><td>2:30</td><td>china</td><td>Chinese Composite PMI (May)</td><td>medium</td><td></td><td>50.2</td></tr>
+                    <tr><td>2:30</td><td>china</td><td>Manufacturing PMI (May)</td><td>high</td><td>49.5</td><td>49</td></tr>
+                    <tr><td>2:30</td><td>china</td><td>Non-Manufacturing PMI (May)</td><td>medium</td><td>50.6</td><td>50.4</td></tr>
+                </tbody>
+            </table>
+            <h4>翌日予定 (2025年06月01日)</h4>
+            <table>
+                 <thead><tr><th>時間</th><th>国</th><th>イベント</th><th>重要度</th><th>予想値</th><th>前回値</th></tr></thead>
+                <tbody>
+                    <tr><td colspan="6" style="text-align:center;">予定されている主な経済指標はありません。</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="notable-news">
+            <h3>注目ニュース (ロイター)</h3>
+            <ul>
+                <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/world/security/ZUKLGWEKQFL27AV33Q2GHNQB7U-2025-05-30/" target="_blank">トランプ氏、鉄鋼・アルミ関税50％に引き上げ表明　6月4日から</a></div>
+                    <span class="news-meta">2025-05-31 10:02:53 JST | ワールド</span>
+                    <div class="news-summary">[ウェストミフリン（米ペンシルベニア州） ３０日 ロイター] - トランプ米大統領は３０日、ペンシルベニア州ピッツバーグ郊外の製鉄所で、輸入される鉄鋼とアルミニウムに課す追加関税を２倍の５０％に引き上げる計画を表明した。６月４日から実施されるという。「鉄鋼に対する追加関税を２５％から５０％に引き上げる。これにより米国の鉄鋼産業の安全がさらに強化される」と述べた。鉄鋼関税引き上げは貿易戦争をさらに激化させる可能性がある。</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/world/security/4JTS6OOK6JINFBWJZ6U4UNJHNE-2025-05-30/" target="_blank">トランプ氏、中国の関税合意違反を非難　厳しい措置示唆</a></div>
+                    <span class="news-meta">2025-05-31 05:46:45 JST | ワールド</span>
+                    <div class="news-summary">［ワシントン ３０日 ロイター］ - トランプ米大統領は３０日、中国が相互に関税率を引き下げる米国との合意のほか、重要鉱物の取引に関する合意にも違反したと主張し、中国に対し厳しい措置を取る可能性を示唆した。ただその後、中国の習近平国家主席と会談し見解の相違を解消することに期待していると表明した。</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/markets/us/NBDGWZDDPVIOLCSCOPFDHZPE3I-2025-05-30/" target="_blank">米国株式市場＝Ｓ＆Ｐ５００ほぼ横ばい、月間では23年11月以来最大の上昇率</a></div>
+                    <span class="news-meta">2025-05-31 06:29:05 JST | 不明</span>
+                    <div class="news-summary">［ニューヨーク ３０日 ロイター］ - 米国株式市場では、Ｓ＆Ｐ総合５００種は不安定な取引の中をほぼ横ばいで取引を終えた。ただ、月間では２０２３年１１月以来の上昇率を記録した。ナスダックも２３年１１月以来最大の月間上昇率となった。トランプ米大統領は３０日、中国が相互に関税率を引き下げる米国との合意のほか、重要鉱物の取引に関する合意にも違反したと主張し、中国に対し厳しい措置を取る可能性を示唆した。</div>
+                </li>
+                 <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/markets/commodities/BIHHX5Q4WZI2PPJSZJ4U5M3O2A-2025-05-30/" target="_blank">ＮＹ市場サマリー（30日）ドルまちまち、利回り低下　Ｓ＆Ｐ横ばい</a></div>
+                    <span class="news-meta">2025-05-31 06:25:22 JST | 不明</span>
+                    <div class="news-summary">ドルはまちまち。米PCE価格指数への反応は限定的。国債利回りは低下、米中貿易戦争激化懸念が再燃。S&P500はほぼ横ばい。金は反落、原油は続落。</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/markets/japan/funds/MHQPVJKQTFNJ5CLD5DIT5LK2KY-2025-05-30/" target="_blank">米4月ＰＣＥ価格2.1％上昇、伸び鈍化　関税にらみ貯蓄志向強まる</a></div>
+                    <span class="news-meta">2025-05-31 02:29:56 JST | 不明</span>
+                    <div class="news-summary">[ワシントン ３０日 ロイター] - 米商務省が３０日発表した４月の個人消費支出（ＰＣＥ）価格指数は、前年比２．１％上昇した。伸びは前月の２．３％から鈍化。変動の大きい食品とエネルギーを除いたコア指数は前年比２．５％上昇し、伸びは前月の２．７％から鈍化し、２０２１年３月以降で最小となった。</div>
+                </li>
+                <li class="news-item">
+                    <div class="news-title"><a href="https://jp.reuters.com/markets/japan/funds/64ZKXGAUCVMQBBKQNV3IMKUXYE-2025-05-30/" target="_blank">関税の即刻見直しかなわないなら、合意は困難＝日米交渉で赤沢再生相</a></div>
+                    <span class="news-meta">2025-05-31 04:39:42 JST | マーケット</span>
+                    <div class="news-summary">［３１日 ロイター］ - 訪米中の赤沢亮正経済再生相は日本時間３１日未明、４回目の日米関税協議を終えて現地で記者会見し、自動車関税について「米側も強い関心がある」としたうえで、自動車や鉄鋼、アルミなど一連の関税措置について「（日本は）即刻見直しがかなわないなら合意は困難というポジションだ」と語った。</div>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p class="disclaimer">免責事項: 本レポートは情報提供のみを目的としており、投資勧誘や特定の金融商品の推奨を意図するものではありません。投資に関する最終決定はご自身の判断で行ってください。</p>
+        </footer>
+    </div>
+</body>
+</html>
