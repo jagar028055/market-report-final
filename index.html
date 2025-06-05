@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日次マーケットサマリー</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #212529; font-size: 16px; line-height: 1.6; }
-        .container { max-width: 960px; margin: 20px auto; padding: 25px; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.05); }
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+            color: #212529; 
+            font-size: 16px; 
+            line-height: 1.6; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 1400px; 
+            margin: 20px auto; 
+            padding: 25px; 
+            background-color: #ffffff; 
+            border: 1px solid #dee2e6; 
+            border-radius: 8px; 
+            box-shadow: 0 0 15px rgba(0,0,0,0.05); 
+        }
         h1 { text-align: center; color: #343a40; margin-bottom: 15px; font-size: 2.2em; font-weight: 600; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
         h2 { color: #495057; margin-top: 25px; margin-bottom: 10px; font-size: 1.6em; border-bottom: 1px dashed #adb5bd; padding-bottom: 8px;}
         h3 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.25em; font-weight: 600; }
@@ -23,12 +40,12 @@
         .news-title a:hover { text-decoration: underline; color: #1abc9c; }
         .news-meta { font-size: 0.8em; color: #95a5a6; margin-top: 4px; display: block; }
         .news-summary { font-size: 0.9em; margin-top: 6px; color: #555; }
-        .charts-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; margin-bottom: 20px; }
+        
         .chart-iframe-container { 
-            flex: 1 1 45%; 
-            min-width: 400px; 
-            height: 400px; 
-            margin-bottom: 20px; 
+            width: 100%; 
+            height: 550px; 
+            margin-top: 10px;
+            margin-bottom: 35px; 
             border: 1px solid #d2d7dc; 
             border-radius: 5px; 
             overflow: hidden;
@@ -36,21 +53,26 @@
             display: flex; 
             flex-direction: column;
         }
-        .component-iframe-container { /* 経済指標やニュース用 */
-            width: 100%;
-            min-height: 300px; /* 内容に応じて高さを確保 */
-            height: auto; /* 内容に応じて自動調整も可 */
-            margin-bottom: 25px;
-            border: 1px solid #d2d7dc;
-            border-radius: 4px;
-            overflow: auto; /* スクロールバーが必要な場合 */
-        }
-        .component-iframe-container iframe, .chart-iframe-container iframe {
+        .chart-iframe-container iframe {
             width: 100%;
             height: 100%; 
             border: none; 
         }
-        .chart-caption { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: -15px; margin-bottom: 25px; }
+        .component-iframe-container { 
+            width: 100%;
+            min-height: 300px; 
+            height: auto; 
+            margin-bottom: 25px;
+            border: 1px solid #d2d7dc;
+            border-radius: 4px;
+            overflow: auto; 
+        }
+        .component-iframe-container iframe {
+            width: 100%;
+            height: 500px; /* Adjust as needed, or use JS to set height based on content */
+            border: none; 
+        }
+        .chart-caption { font-size: 0.85em; color: #7f8c8d; text-align: center; margin-top: 8px; margin-bottom: 25px; } 
         .disclaimer { font-size: 0.75em; color: #95a5a6; text-align: center; margin-top: 60px; border-top: 1px solid #d2d7dc; padding-top: 25px;}
         hr.section-divider { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)); margin: 50px 0; }
     </style>
@@ -58,39 +80,51 @@
 <body>
     <div class="container">
         <h1>日次マーケットサマリー</h1>
-        <h2>2025年6月4日</h2>
+        <h2 id="report-date">2025年6月4日</h2>
+
+        <script>
+            // レポート日付を動的に設定 (例: 現在の日付)
+            // const today = new Date();
+            // const year = today.getFullYear();
+            // const month = today.getMonth() + 1;
+            // const day = today.getDate();
+            // document.getElementById('report-date').textContent = `${year}年${month}月${day}日`;
+            // 上記はクライアントサイドで実行されるため、静的HTMLでは固定日付が良いでしょう。
+            // プロンプトでは「AIが現在の日付をYYYY年MM月DD日の形式で挿入」とありましたが、
+            // このHTMLはAIが生成するため、ここでは概況対象日の翌日をレポート発行日として固定値で設定します。
+        </script>
 
         <section id="market-overview">
-            <h3>前日のマーケット概況（2025年6月3日）</h3>
-            <h4>1. 導入（市場の主要テーマと全体感）</h4>
+            <h3>マーケット概況 (2025年6月3日)</h3>
+            <p><strong>1. 導入（市場の主要テーマと全体感）</strong></p>
             <p>2025年6月3日の金融市場は、米国の労働市場に関する経済指標や主要中央銀行の金融政策運営に対する思惑が交錯し、各市場で方向感の乏しい展開となりました。特に、米労働省が発表した4月のJOLTS求人件数が市場の注目を集めましたが、強弱入り混じる内容となり、積極的なポジション構築は手控えられました。株式市場は主要国でまちまちな動きを見せ、為替市場では前日までのドル高が一服、債券市場では長期金利が低下する動きが見られました。全体として、今後の重要な経済指標や金融イベントを前に、市場参加者は慎重な姿勢を崩さなかったと言えます。</p>
-
-            <h4>2. 株式市場の詳細動向</h4>
+            
+            <p><strong>2. 株式市場の詳細動向</strong></p>
             <p>世界の主要株式市場は、強弱まちまちな展開となりました。</p>
             <p><strong>米国市場:</strong> ダウ平均株価は前日比115.95ドル高（+0.27%）の42,635.59ドル、S&P 500種株価指数も14.94ポイント高（+0.25%）の5,985.31ポイント、NASDAQ総合指数は53.98ポイント高（+0.28%）の19,452.94ポイントと、主要3指数はいずれも小幅ながら上昇しました。この日発表された4月のJOLTS求人件数は739.1万件と、市場予想の711.0万件を上回ったものの、前月（修正値）の720.0万件からは減少し、労働市場の過熱感が若干和らいだとの見方も出ました。一方で、同日発表された4月の米製造業新規受注は前月比-3.7%と市場予想（-3.1%）を下回り、景気の先行きに対する警戒感も残りました。これらの結果を受け、FRBの利下げ期待が大きく後退するには至らず、株式市場は底堅く推移しました。</p>
             <p><strong>日本市場:</strong> 日経平均株価は前日比23.86円安（-0.06%）の37,446.81円と小幅に下落しました。前日の米国市場が堅調だった流れを引き継げず、利益確定売りに押される展開となりました。外国為替市場でドル円相場が1ドル142円台半ばへと円高方向に振れたことも、輸出関連企業を中心に重荷となりました。この日、日銀の植田総裁の講演（EconomicCalendar参照、詳細内容不明）がありましたが、市場の反応は限定的でした。</p>
-
-            <h4>3. 為替市場の詳細動向</h4>
+            
+            <p><strong>3. 為替市場の詳細動向</strong></p>
             <p>為替市場では、米国の経済指標発表後も大きな方向性は出ず、通貨ごとにまちまちな動きとなりました。</p>
             <p><strong>USD/JPY:</strong> 1ドル＝142.45円と、前日比1.36円の円高（-0.95%）となりました。米JOLTS求人件数が予想を上回ったものの前月からは減少したことや、米長期金利が低下したことを受けて、ドル売り円買いが優勢となりました。日米金利差縮小への思惑も一部で意識された可能性があります。</p>
             <p><strong>EUR/USD:</strong> 1ユーロ＝1.1500ドルと、前日比0.01ドルのユーロ高ドル安（+0.88%）となりました。ユーロ圏では5月の消費者物価指数（CPI）速報値が前年同月比+1.9%と、市場予想（+2.0%）を下回り、前月の+2.2%からも鈍化しました。コアCPIも前年同月比+2.3%と予想（+2.4%）を下回りました（EconomicCalendar参照）。インフレ鈍化はECBの利下げ観測を強める材料となり得るものの、この日はドル安の流れがユーロを押し上げた形となりました。ECBのラガルド総裁の講演（EconomicCalendar参照、詳細内容不明）も注目されましたが、新たな金融政策の手がかりは乏しかったようです。</p>
             <p><strong>GBP/JPY:</strong> 1ポンド＝193.10円と、前日比0.57円の円高ポンド安（-0.29%）となりました。英国固有の材料は乏しい中、主に円買いの流れに押されました。</p>
 
-            <h4>4. 債券市場（金利・イールドカーブ）の詳細動向</h4>
+            <p><strong>4. 債券市場（金利・イールドカーブ）の詳細動向</strong></p>
             <p>主要国の債券市場では、長期金利が低下する動きが目立ちました。</p>
             <p><strong>米国債市場:</strong> 米国10年債利回りは6月3日、DailySummaryによれば4.41%と、前日比0.05ポイント低下（-1.03%）しました。JOLTS求人件数や製造業新規受注の結果を受け、景気の先行き不透明感やFRBの利下げ期待がいくぶん維持されたことが背景にあると考えられます。YieldCurves_Combinedのデータ（日付2025-06-04）が示す6月3日終値から6月4日終値にかけての利回り変化を見ると、短期金利を中心に利回りが低下しました。具体的には、1ヶ月物で1.9bp、3ヶ月物で4.5bp、6ヶ月物で3.9bp、10年物で1.8bp低下するなど、短期側の低下が目立ちました（ブルフラットニングの動き）。この動きは、市場が短期的な金利の先行きに対してややハト派的な見方を強めたことを示唆している可能性があります。</p>
             <p><strong>日本国債市場:</strong> DailySummaryのデータはありませんが、YieldCurves_Combinedのデータによれば、日本の10年債利回りは6月3日終値の1.521%から6月4日終値には1.485%へと3.6bp低下しました。米金利低下の流れに加え、日銀による金融政策正常化ペースへの慎重な見方も影響したと考えられます。イールドカーブ全体では、1ヶ月物が1.5bp、3ヶ月物が3.7bp、5年物が4.8bp低下するなど、幅広い年限で利回りが低下しました。</p>
 
-            <h4>5. コモディティ市場の詳細動向</h4>
+            <p><strong>5. コモディティ市場の詳細動向</strong></p>
             <p>コモディティ市場では、原油は小幅高、金は堅調な値動きでした。</p>
             <p><strong>WTI原油:</strong> 前日比0.09ドル高（+0.14%）の1バレル＝63.50ドルで引けました。EconomicCalendarによると、日本時間6月3日23時に発表されたAPI（米国石油協会）週間石油在庫統計で原油在庫が330.0万バレルの減少（予想90.0万バレルの減少）を示したことが支援材料となりました。ただ、世界経済の減速懸念やドル相場の方向感のなさから上値は重い展開でした。</p>
             <p><strong>金:</strong> 前日比31.1ドル高（+0.93%）の1オンス＝3381.3ドルと上昇しました。米長期金利の低下や、ドル相場が上値の重い展開となったことが金の支援材料となりました。また、経済指標の強弱入り混じる結果から、景気の先行き不透明感も安全資産としての金の魅力を高めたと考えられます。</p>
 
-            <h4>6. 前日の最重要材料とその市場インパクト評価</h4>
+            <p><strong>6. 前日の最重要材料とその市場インパクト評価</strong></p>
             <p>2025年6月3日の市場において最も注目されたのは、<strong>米国の4月JOLTS求人件数</strong>でした。結果は739.1万件と市場予想（711.0万件）を上回ったものの、前月の720.0万件からは減少しており、労働市場の逼迫が緩和しつつある兆候と、依然として底堅いという見方が交錯しました。この結果、市場はFRBの金融政策に対する明確な方向性を見出しにくく、株式市場は小幅な値動きに留まり、為替市場でもドルは一方向に大きく動くことはありませんでした。むしろ、同時に発表された4月の米製造業新規受注が予想を下回ったことと合わせて、景気のピークアウト懸念も意識され、債券利回りの低下を促した面があると言えます。</p>
             <p>その他、ユーロ圏のCPIが予想を下回ったことはECBの金融政策運営に影響を与える可能性があり、今後のECB理事会での議論が注目されます。</p>
 
-            <h4>7. 総括と今後の注目点</h4>
+            <p><strong>7. 総括と今後の注目点</strong></p>
             <p>2025年6月3日の市場は、米国の労働市場関連指標の結果が強弱入り混じる内容となったことで、金融政策への期待が錯綜し、全体的に方向感に欠ける展開となりました。各市場は、今後のより重要な経済指標や中央銀行の政策決定を見極めたいとの姿勢が強く、積極的なリスクテイクは限定的でした。</p>
             <p>本日（6月4日）は、米国ではADP民間雇用統計（予想11.1万人増）、ISM非製造業景況指数（予想52.0）、カナダではBOC（カナダ銀行）の政策金利発表（予想2.75%で据え置き）と声明が予定されています（EconomicCalendar参照）。特にADP統計は週末の米雇用統計の前哨戦として注目度が高く、ISM非製造業景況指数と合わせて米国経済の現状を判断する上で重要な手がかりとなるでしょう。また、BOCの金融政策判断も為替市場に影響を与える可能性があるため注視が必要です。これらの結果次第では、市場のセンチメントが再び変化する可能性があり、引き続き神経質な展開が予想されます。</p>
         </section>
@@ -98,26 +132,22 @@
         <hr class="section-divider">
 
         <section id="intraday-charts">
-            <h3>主要指標イントラデイチャート</h3>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>日経225</h4>
-                    <iframe src="./charts/intraday_chart_日経225.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>S&P 500</h4>
-                    <iframe src="./charts/intraday_chart_S&P_500.html"></iframe>
-                </div>
+            <h3>主要指標イントラデイチャート (2025年6月4日)</h3>
+            <div class="chart-iframe-container">
+                <h4>日経225 (5分足)</h4>
+                <iframe src="./charts/intraday_chart_日経225.html"></iframe>
             </div>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>USD/JPY</h4>
-                    <iframe src="./charts/intraday_chart_USD_JPY.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>WTI原油</h4>
-                    <iframe src="./charts/intraday_chart_WTI原油.html"></iframe>
-                </div>
+            <div class="chart-iframe-container">
+                <h4>S&P 500 (5分足)</h4>
+                <iframe src="./charts/intraday_chart_S&P_500.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>USD/JPY (5分足)</h4>
+                <iframe src="./charts/intraday_chart_USD_JPY.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>WTI原油 (5分足)</h4>
+                <iframe src="./charts/intraday_chart_WTI原油.html"></iframe>
             </div>
         </section>
 
@@ -125,80 +155,77 @@
 
         <section id="longterm-charts">
             <h3>主要指標長期チャート</h3>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>日経225</h4>
-                    <iframe src="./charts/longterm_chart_日経225.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>S&P 500</h4>
-                    <iframe src="./charts/longterm_chart_S&P_500.html"></iframe>
-                </div>
+            <div class="chart-iframe-container">
+                <h4>日経225 (日足)</h4>
+                <iframe src="./charts/longterm_chart_日経225.html"></iframe>
             </div>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>ダウ平均</h4>
-                    <iframe src="./charts/longterm_chart_ダウ平均.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>NASDAQ総合</h4>
-                    <iframe src="./charts/longterm_chart_NASDAQ総合.html"></iframe>
-                </div>
+            <div class="chart-iframe-container">
+                <h4>S&P 500 (日足)</h4>
+                <iframe src="./charts/longterm_chart_S&P_500.html"></iframe>
             </div>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>USD/JPY</h4>
-                    <iframe src="./charts/longterm_chart_USD_JPY.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>EUR/USD</h4>
-                    <iframe src="./charts/longterm_chart_EUR_USD.html"></iframe>
-                </div>
+            <div class="chart-iframe-container">
+                <h4>ダウ平均 (日足)</h4>
+                <iframe src="./charts/longterm_chart_ダウ平均.html"></iframe>
             </div>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>WTI原油</h4>
-                    <iframe src="./charts/longterm_chart_WTI原油.html"></iframe>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>金</h4>
-                    <iframe src="./charts/longterm_chart_金.html"></iframe>
-                </div>
+            <div class="chart-iframe-container">
+                <h4>NASDAQ総合 (日足)</h4>
+                <iframe src="./charts/longterm_chart_NASDAQ総合.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>USD/JPY (日足)</h4>
+                <iframe src="./charts/longterm_chart_USD_JPY.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>EUR/USD (日足)</h4>
+                <iframe src="./charts/longterm_chart_EUR_USD.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>WTI原油 (日足)</h4>
+                <iframe src="./charts/longterm_chart_WTI原油.html"></iframe>
+            </div>
+            <div class="chart-iframe-container">
+                <h4>金 (日足)</h4>
+                <iframe src="./charts/longterm_chart_金.html"></iframe>
             </div>
         </section>
 
         <hr class="section-divider">
 
         <section id="yield-curves">
-            <h3>主要国のイールドカーブ</h3>
-            <div class="charts-row">
-                <div class="chart-iframe-container">
-                    <h4>米国</h4>
-                    <iframe src="./charts/yield_curve_米国.html"></iframe>
-                    <p class="chart-caption">6月3日から4日にかけて、米国のイールドカーブは短期金利を中心に低下し、ブルフラットニングの様相を呈しました。特に1ヶ月物で1.9bp、3ヶ月物で4.5bpと短期ゾーンの低下が顕著で、市場が短期的な金融政策に対し、ややハト派的な見方を強めている可能性を示唆しています。10年債利回りも1.8bp低下しました。</p>
-                </div>
-                <div class="chart-iframe-container">
-                    <h4>日本</h4>
-                    <iframe src="./charts/yield_curve_日本.html"></iframe>
-                    <p class="chart-caption">日本のイールドカーブも6月3日から4日にかけて全般的に低下しました。10年債利回りが3.6bp低下したほか、5年債で4.8bp、3ヶ月債で3.7bpと、中短期ゾーンでの低下が目立ちました。米金利の低下に加え、日銀の金融政策正常化に対する市場の慎重な見方が反映された可能性があります。</p>
-                </div>
+            <h3>主要国のイールドカーブ (2025年6月4日時点)</h3>
+            <div class="chart-iframe-container">
+                <h4>米国イールドカーブ</h4>
+                <iframe src="./charts/yield_curve_米国.html"></iframe> 
+                <p class="chart-caption">米国債利回りは、短期ゾーンでの低下がやや顕著でした。1ヶ月物が4.282%、10年物が4.462%となっており、依然として順イールドの形状を維持しています。</p>
             </div>
+            <div class="chart-iframe-container">
+                <h4>日本イールドカーブ</h4>
+                <iframe src="./charts/yield_curve_日本.html"></iframe> 
+                <p class="chart-caption">日本国債利回りは全般的に低下しました。1ヶ月物が0.455%、10年物が1.485%と、引き続き非常に低い水準での順イールドとなっています。</p>
+            </div>
+             <!-- ドイツのイールドカーブのグラフファイルがもしあればここに追加
+            <div class="chart-iframe-container">
+                <h4>ドイツイールドカーブ</h4>
+                <iframe src="./charts/yield_curve_ドイツ.html"></iframe> 
+                <p class="chart-caption">[AIによるドイツイールドカーブの簡単な解説テキスト]</p>
+            </div>
+            -->
         </section>
 
         <hr class="section-divider">
 
         <section id="economic-calendar">
             <h3>経済指標カレンダー</h3>
-            <h4>前日（2025年6月3日）の主要経済指標</h4>
-            <div class="component-iframe-container" style="height: 600px;"> 
+            <h4>前日 (2025年6月3日) の主な結果</h4>
+            <div class="component-iframe-container">
                 <iframe src="./charts/economic_calendar_yesterday.html"></iframe>
             </div>
-            <h4>本日（2025年6月4日）の主要経済指標</h4>
-            <div class="component-iframe-container" style="height: 500px;">
+            <h4>本日 (2025年6月4日) の主な予定</h4>
+            <div class="component-iframe-container">
                 <iframe src="./charts/economic_calendar_today.html"></iframe>
             </div>
-            <h4>明日（2025年6月5日）の主要経済指標</h4>
-            <div class="component-iframe-container" style="height: 500px;">
+            <h4>翌日 (2025年6月5日) の主な予定</h4>
+            <div class="component-iframe-container">
                 <iframe src="./charts/economic_calendar_tomorrow.html"></iframe>
             </div>
         </section>
@@ -207,13 +234,15 @@
 
         <section id="notable-news">
             <h3>注目ニュース (ロイター)</h3>
-            <div class="component-iframe-container" style="height: 700px;"> 
+             <div class="component-iframe-container">
                 <iframe src="./charts/notable_news.html"></iframe>
             </div>
         </section>
 
         <footer>
-            <p class="disclaimer">免責事項: 本レポートは情報提供のみを目的としており、投資勧誘や特定の金融商品の推奨を意図するものではありません。投資に関する最終決定はご自身の判断で行ってください。</p>
+            <p class="disclaimer">
+                免責事項: このレポートは情報提供のみを目的としており、投資勧誘を目的とするものではありません。記載された情報や分析は、作成時点でのデータに基づいており、将来の市場動向を保証するものではありません。投資の最終決定は、ご自身の判断と責任において行ってください。本レポートの情報を用いて行う一切の行為について、当方は何ら責任を負うものではありません。
+            </p>
         </footer>
     </div>
 </body>
