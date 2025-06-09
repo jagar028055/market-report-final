@@ -1,0 +1,739 @@
+
+    <html><head><meta charset='utf-8'><title>経済指標カレンダー</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; }
+        .component-container { max-width: 900px; margin: auto; } /* ★ 幅を設定 */
+        h3, h4 { color: #34495e; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f3f7; }
+    </style>
+    </head>
+    <body><div class='component-container'>
+        <h3>経済指標カレンダー</h3>
+        <h4>前日発表</h4>
+<table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>日付</th>
+      <th>時間</th>
+      <th>国</th>
+      <th>重要度</th>
+      <th>イベント</th>
+      <th>発表値</th>
+      <th>予想値</th>
+      <th>前回値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>medium</td>
+      <td>Adjusted Current Account  (Apr)</td>
+      <td>-</td>
+      <td>2.59T</td>
+      <td>2.72T</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>Bank Lending (YoY)  (May)</td>
+      <td>-</td>
+      <td>2.3%</td>
+      <td>2.3%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>medium</td>
+      <td>Current Account n.s.a.  (Apr)</td>
+      <td>-</td>
+      <td>2.560T</td>
+      <td>3.678T</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>high</td>
+      <td>GDP (QoQ)  (Q1)</td>
+      <td>-</td>
+      <td>-0.2%</td>
+      <td>0.6%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>medium</td>
+      <td>GDP Annualized (QoQ)  (Q1)</td>
+      <td>-</td>
+      <td>-0.7%</td>
+      <td>2.2%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>GDP Capital Expenditure (QoQ)  (Q1)</td>
+      <td>-</td>
+      <td>1.4%</td>
+      <td>0.6%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>GDP External Demand (QoQ)  (Q1)</td>
+      <td>-</td>
+      <td>-0.8%</td>
+      <td>0.7%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>medium</td>
+      <td>GDP Price Index (YoY)  (Q1)</td>
+      <td>-</td>
+      <td>3.2%</td>
+      <td>2.9%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>GDP Private Consumption (QoQ)  (Q1)</td>
+      <td>-</td>
+      <td>0.0%</td>
+      <td>0.1%</td>
+    </tr>
+  </tbody>
+</table>
+        <h4>本日予定</h4>
+<table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>日付</th>
+      <th>時間</th>
+      <th>国</th>
+      <th>重要度</th>
+      <th>イベント</th>
+      <th>発表値</th>
+      <th>予想値</th>
+      <th>前回値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>01:30</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>CPI (MoM)  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>01:30</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>CPI (YoY)  (May)</td>
+      <td>-</td>
+      <td>-0.2%</td>
+      <td>-0.1%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>01:30</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>PPI (YoY)  (May)</td>
+      <td>-</td>
+      <td>-3.1%</td>
+      <td>-2.7%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>low</td>
+      <td>Exports  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>9.30M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>low</td>
+      <td>Imports  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.80M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>low</td>
+      <td>Trade Balance  (May)</td>
+      <td>-</td>
+      <td>710.00B</td>
+      <td>689.99B</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>Exports (YoY)  (May)</td>
+      <td>-</td>
+      <td>5.0%</td>
+      <td>8.1%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>Imports (YoY)  (May)</td>
+      <td>-</td>
+      <td>-0.9%</td>
+      <td>-0.2%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>03:00</td>
+      <td>🇨🇳 中国</td>
+      <td>medium</td>
+      <td>Trade Balance (USD)  (May)</td>
+      <td>-</td>
+      <td>101.10B</td>
+      <td>96.18B</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>05:00</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>Economy Watchers Current Index  (May)</td>
+      <td>-</td>
+      <td>43.8</td>
+      <td>42.6</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>09:00</td>
+      <td>🇪🇺 ユーロ圏</td>
+      <td>medium</td>
+      <td>ECB's Elderson Speaks</td>
+      <td>-</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Algeria (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.91M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Congo (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.26M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Gabon (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.22M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Guinea (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.05M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude oil Production Iran (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>3.35M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude oil Production Iraq (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>3.93M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Kuwait (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>2.41M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Libya (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>1.26M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude Oil Production Nigeria (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>1.57M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude oil Production Saudi Arabia (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>8.97M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude oil Production UAE (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>2.91M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:45</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>OPEC Crude oil Production Venezuela (Barrel)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.76M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>14:00</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>CB Employment Trends Index  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>108.00</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>14:00</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>Wholesale Inventories (MoM)  (Apr)</td>
+      <td>-</td>
+      <td>0.0%</td>
+      <td>0.4%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>14:00</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>Wholesale Trade Sales (MoM)  (Apr)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>0.8%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>15:00</td>
+      <td>🇺🇸 米国</td>
+      <td>medium</td>
+      <td>NY Fed 1-Year Consumer Inflation Expectations  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>3.6%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>15:30</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>3-Month Bill Auction</td>
+      <td>-</td>
+      <td>None</td>
+      <td>4.250%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>15:30</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>6-Month Bill Auction</td>
+      <td>-</td>
+      <td>None</td>
+      <td>4.150%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>17:00</td>
+      <td>🇺🇸 米国</td>
+      <td>medium</td>
+      <td>Atlanta Fed GDPNow  (Q2)</td>
+      <td>-</td>
+      <td>3.8%</td>
+      <td>3.8%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:01</td>
+      <td>🇬🇧 英国</td>
+      <td>medium</td>
+      <td>BRC Retail Sales Monitor (YoY)  (May)</td>
+      <td>-</td>
+      <td>2.7%</td>
+      <td>6.8%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>M2 Money Stock (YoY)</td>
+      <td>-</td>
+      <td>0.6%</td>
+      <td>0.5%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>M3 Money Supply  (May)</td>
+      <td>-</td>
+      <td>None</td>
+      <td>2,194.7B</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>All Day</td>
+      <td>🇦🇺 豪州</td>
+      <td>None</td>
+      <td>Australia - King's Birthday</td>
+      <td>-</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>All Day</td>
+      <td>🇦🇺 豪州</td>
+      <td>None</td>
+      <td>Australia - King's Birthday</td>
+      <td>-</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+        <h4>翌日予定</h4>
+<table border="1" class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>日付</th>
+      <th>時間</th>
+      <th>国</th>
+      <th>重要度</th>
+      <th>イベント</th>
+      <th>予想値</th>
+      <th>前回値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>00:30</td>
+      <td>🇦🇺 豪州</td>
+      <td>low</td>
+      <td>Westpac Consumer Sentiment  (Jun)</td>
+      <td>None</td>
+      <td>2.2%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>01:30</td>
+      <td>🇦🇺 豪州</td>
+      <td>medium</td>
+      <td>NAB Business Confidence  (May)</td>
+      <td>None</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>01:30</td>
+      <td>🇦🇺 豪州</td>
+      <td>low</td>
+      <td>NAB Business Survey  (May)</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇬🇧 英国</td>
+      <td>low</td>
+      <td>Average Earnings ex Bonus  (Apr)</td>
+      <td>5.5%</td>
+      <td>5.6%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇬🇧 英国</td>
+      <td>medium</td>
+      <td>Average Earnings Index +Bonus  (Apr)</td>
+      <td>5.3%</td>
+      <td>5.5%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇬🇧 英国</td>
+      <td>medium</td>
+      <td>Claimant Count Change  (May)</td>
+      <td>9.5K</td>
+      <td>5.2K</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇬🇧 英国</td>
+      <td>medium</td>
+      <td>Employment Change 3M/3M (MoM)  (Apr)</td>
+      <td>None</td>
+      <td>112K</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇬🇧 英国</td>
+      <td>medium</td>
+      <td>Unemployment Rate  (Apr)</td>
+      <td>4.6%</td>
+      <td>4.5%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>06:00</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>Machine Tool Orders (YoY)  (May)</td>
+      <td>None</td>
+      <td>7.7%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>08:00</td>
+      <td>🇮🇹 イタリア</td>
+      <td>low</td>
+      <td>Italian Industrial Production (YoY)  (Apr)</td>
+      <td>None</td>
+      <td>-1.8%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>08:00</td>
+      <td>🇮🇹 イタリア</td>
+      <td>low</td>
+      <td>Italian Industrial Production (MoM)  (Apr)</td>
+      <td>0.1%</td>
+      <td>0.1%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>08:30</td>
+      <td>🇪🇺 ユーロ圏</td>
+      <td>low</td>
+      <td>Sentix Investor Confidence  (Jun)</td>
+      <td>-6.0</td>
+      <td>-8.1</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>08:40</td>
+      <td>🇪🇸 スペイン</td>
+      <td>low</td>
+      <td>Spanish 3-Month Letras Auction</td>
+      <td>None</td>
+      <td>1.976%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>09:30</td>
+      <td>🇩🇪 ドイツ</td>
+      <td>low</td>
+      <td>German 5-Year Bobl Auction</td>
+      <td>None</td>
+      <td>2.070%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>10:00</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>NFIB Small Business Optimism  (May)</td>
+      <td>95.9</td>
+      <td>95.8</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>12:55</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>Redbook (YoY)</td>
+      <td>None</td>
+      <td>4.9%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>13:00</td>
+      <td>🇫🇷 フランス</td>
+      <td>low</td>
+      <td>French 12-Month BTF Auction</td>
+      <td>None</td>
+      <td>1.909%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>13:00</td>
+      <td>🇫🇷 フランス</td>
+      <td>low</td>
+      <td>French 3-Month BTF Auction</td>
+      <td>None</td>
+      <td>1.985%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>13:00</td>
+      <td>🇫🇷 フランス</td>
+      <td>low</td>
+      <td>French 6-Month BTF Auction</td>
+      <td>None</td>
+      <td>1.962%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>14:30</td>
+      <td>🇩🇪 ドイツ</td>
+      <td>medium</td>
+      <td>German Buba Vice President Buch Speaks</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>15:30</td>
+      <td>🇺🇸 米国</td>
+      <td>low</td>
+      <td>52-Week Bill Auction</td>
+      <td>None</td>
+      <td>3.930%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>16:00</td>
+      <td>🇺🇸 米国</td>
+      <td>medium</td>
+      <td>EIA Short-Term Energy Outlook</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>17:00</td>
+      <td>🇺🇸 米国</td>
+      <td>medium</td>
+      <td>3-Year Note Auction</td>
+      <td>None</td>
+      <td>3.824%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>20:30</td>
+      <td>🇺🇸 米国</td>
+      <td>medium</td>
+      <td>API Weekly Crude Oil Stock</td>
+      <td>0.700M</td>
+      <td>-3.300M</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>PPI (YoY)  (May)</td>
+      <td>3.5%</td>
+      <td>4.0%</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>23:50</td>
+      <td>🇯🇵 日本</td>
+      <td>low</td>
+      <td>PPI (MoM)  (May)</td>
+      <td>None</td>
+      <td>0.2%</td>
+    </tr>
+  </tbody>
+</table>
+    </div></body></html>
+    
